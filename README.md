@@ -1,47 +1,57 @@
-# Lilfy MCP Slack Server
+# 💬 Lilfy MCP Slack Server
 
-A Model Context Protocol (MCP) server that provides integration with Slack for development agents.
+A Model Context Protocol (MCP) server that provides seamless integration with Slack for development agents (such as Claude, Gemini, or custom IDE bots).
 
-## Features
+## ✨ Features
 
-Provides the following MCP tools:
+Provides the following MCP tools to connected LLM agents:
 - `send_message`: Send a chat message to a specific Slack channel or user.
 - `list_channels`: List available public and private Slack channels the bot has access to.
 - `read_messages`: Fetch the recent message history from a Slack channel.
 
-## Prerequisites
+## 🛠️ Tech Stack
 
-You will need a Slack App with the following Bot Token Scopes:
+- **Runtime**: Node.js (TypeScript)
+- **APIs**: Slack Web API
+- **Protocol**: Model Context Protocol (MCP)
+
+## 📋 Prerequisites
+
+You will need a Slack App configured with the following Bot Token Scopes:
 - `chat:write`
 - `channels:read`
 - `groups:read`
 - `channels:history`
 - `groups:history`
 
-You need to provide the Bot User OAuth Token (`xoxb-...`) as an environment variable `SLACK_BOT_TOKEN`.
+Provide the Bot User OAuth Token (`xoxb-...`) as an environment variable named `SLACK_BOT_TOKEN`.
 
-## Installation & Build
+## 🚀 Installation & Build
 
-```sh
-cd lilfy-mcp-slack
-npm install
-npm run build
-```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Usage
+2. Compile TypeScript to JavaScript:
+   ```bash
+   npm run build
+   ```
 
-You can run this MCP server and connect it to any MCP-compatible client (like Claude Desktop).
+## 🔌 Integration Setup
 
-### In Claude Desktop
+You can run this MCP server and connect it to any MCP-compatible client (such as Claude Desktop).
 
-Add the following to your `claude_desktop_config.json`:
+### Setup in Claude Desktop
+
+Add the following configuration to your `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
     "slack": {
       "command": "node",
-      "args": ["/absolute/path/to/lilfy-core/lilfy-mcp-slack/build/index.js"],
+      "args": ["/absolute/path/to/slack-app-gemini/build/index.js"],
       "env": {
         "SLACK_BOT_TOKEN": "xoxb-your-slack-bot-token"
       }
@@ -50,4 +60,4 @@ Add the following to your `claude_desktop_config.json`:
 }
 ```
 
-Make sure to reload the developer agent or Claude Desktop so the new server is registered.
+Make sure to reload your developer agent or Claude Desktop so the new server is registered.
