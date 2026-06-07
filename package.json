@@ -1,0 +1,26 @@
+{
+  "name": "lilfy-mcp-slack",
+  "version": "1.0.0",
+  "description": "MCP Server for Slack integration",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "rimraf build && tsc",
+    "start": "node build/index.js",
+    "dev": "tsx src/index.ts",
+    "start:agent": "tsx src/slack-agent.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "@slack/bolt": "^4.6.0",
+    "@slack/web-api": "^7.8.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.3"
+  }
+}
